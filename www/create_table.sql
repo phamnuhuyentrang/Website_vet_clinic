@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS Client;
 
 
 Create table Client (
-	ID_Client INT PRIMARY KEY,
+	ID_Client INT PRIMARY KEY AUTO_INCREMENT,
 	Nom varchar(30) NOT NULL,
 	Prenom varchar(30) NOT NULL,
 	Date_de_naissance date NOT NULL,
@@ -27,7 +27,7 @@ Create table Classe_animal (
 );
 
 Create table Veterinaire (
-	ID_personnel INT PRIMARY KEY,
+	ID_personnel INT PRIMARY KEY AUTO_INCREMENT,
 	Nom varchar(30) NOT NULL,
 	prenom varchar(30) NOT NULL,
 	Date_de_naissance date NOT NULL,
@@ -39,7 +39,7 @@ Create table Veterinaire (
 );
 
 Create table Assistant (
-	ID_personnel INT PRIMARY KEY,
+	ID_personnel INT PRIMARY KEY AUTO_INCREMENT,
 	Nom varchar(30) NOT NULL,
 	prenom varchar(30) NOT NULL,
 	Date_de_naissance date NOT NULL,
@@ -59,7 +59,7 @@ Create table Espece (
 
 /*Ici on suppose que il reste des animaux qui ont même nom*/
 Create table Animal (
-	ID_Animal INT PRIMARY KEY,
+	ID_Animal INT PRIMARY KEY AUTO_INCREMENT,
 	Nom varchar(30) NOT NULL,
 	Poids FLOAT NOT NULL,
 	Taille FLOAT NOT NULL,
@@ -72,7 +72,7 @@ Create table Animal (
 );
 
 Create table Effets_secondaires (
-	ID_effet_secondaire INT PRIMARY KEY,
+	ID_effet_secondaire INT PRIMARY KEY AUTO_INCREMENT,
 	Effets varchar(100) NOT NULL
 );
 
@@ -100,7 +100,7 @@ Create table Med_correspond_Ani (
 );
 
 Create table Traitement (
-	ID_Traitement INT PRIMARY KEY,
+	ID_Traitement INT PRIMARY KEY AUTO_INCREMENT,
 	Debut TIME NOT NULL,
 	Duree TIME NOT NULL,
 	Nom varchar(30) NOT NULL,
