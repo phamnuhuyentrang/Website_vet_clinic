@@ -1,0 +1,1 @@
+select A.Espece as Nom_Espece, Count(T.ID_Traitement) as Nombre_traitement from Animal A, rendez_vous R, traitement T where A.ID_Animal = R.Pet and T.Rdv = R.No_ref group by A.Espece;
