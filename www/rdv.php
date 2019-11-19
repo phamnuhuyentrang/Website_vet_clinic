@@ -83,7 +83,7 @@
   									</div>
   									<div class="form">
     									<label for="rdv_time">Appointment Time: </label>
-   				 						<input type="time" name="rdv_time" id="rdv_time" min="09:00:00" max="20:00:00" required>
+   				 						<input type="time" name="rdv_time" id="rdv_time" min="09:00:00" max="19:00:00" required>
   									</div>
   									<br>
   									<div class="form">
