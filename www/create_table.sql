@@ -18,8 +18,7 @@ Create table Client (
 	Prenom varchar(30) NOT NULL,
 	Date_de_naissance date NOT NULL,
 	Addresse varchar(100) NOT NULL,
-	Numero_de_telephone varchar(10) NOT NULL,
-    CHECK(Numero_de_telephone REGEXP '^[0-9]{10}$')
+	Numero_de_telephone varchar(10) NOT NULL
 );
 
 Create table Classe_animal (
@@ -33,7 +32,6 @@ Create table Veterinaire (
 	Date_de_naissance date NOT NULL,
 	Addresse varchar(100) NOT NULL,
 	Numero_de_telephone varchar(30) NOT NULL,
-	CHECK(Numero_de_telephone REGEXP '^[0-9]{10}$'),
 	Specialite varchar(30), 
     foreign key (Specialite) references Classe_animal(Nom)
 );
@@ -45,7 +43,6 @@ Create table Assistant (
 	Date_de_naissance date NOT NULL,
 	Addresse varchar(100) NOT NULL,
 	Numero_de_telephone varchar(30) NOT NULL,
-	CHECK(Numero_de_telephone REGEXP '^[0-9]{10}$'),
 	Specialite varchar(30),
     foreign key (Specialite) references Classe_animal(Nom)
 );
@@ -67,8 +64,7 @@ Create table Animal (
 	Espece varchar(30), 
     foreign key(Espece) references Espece(Nom),
 	ID_Client INT, 
-    foreign key(ID_Client) references Client(ID_Client),
-	CHECK (Poids > 0 AND Taille > 0)
+    foreign key(ID_Client) references Client(ID_Client)
 );
 
 Create table Effets_secondaires (
@@ -99,16 +95,22 @@ Create table Med_correspond_Ani (
     PRIMARY KEY(Medicament,Espece)
 );
 
+Create table Rendez_vous (
+	No_ref INT PRIMARY KEY AUTO_INCREMENT,
+	Pet INT,
+	Vet INT,
+	Date_rdv date not null,
+	Time_rdv time not null,
+	FOREIGN KEY (Pet) REFERENCES Animal(ID_Animal),
+	FOREIGN KEY (Vet) REFERENCES Veterinaire(ID_personnel)
+);
+
 Create table Traitement (
 	ID_Traitement INT PRIMARY KEY AUTO_INCREMENT,
-	Debut TIME NOT NULL,
+	Rdv INT,
+	foreign key (Rdv) REFERENCES Rendez_vous(No_ref),
 	Duree TIME NOT NULL,
-	Nom varchar(30) NOT NULL,
-	ID_Animal INT, 
-    foreign key(ID_Animal) references Animal(ID_Animal),
-	Veterinaire INT,
-    foreign key(Veterinaire) references Veterinaire(ID_personnel),
-	CHECK (Duree <> '00:00:00')
+	Nom varchar(30) NOT NULL
 );
 
 /*C'est une classe d'association*/
@@ -118,6 +120,5 @@ Create table Traitement_Medicament (
 	Medicament VARCHAR(30), 
     foreign key(Medicament) references Medicament(Nom_de_molecule),
 	Quantite_medicaments_pj INT NOT NULL,
-	CHECK (Quantite_medicaments_pj > 0),
 	PRIMARY KEY(Traitement,Medicament)
 );

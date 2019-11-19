@@ -13,21 +13,20 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="home_user.html">Home</a></li>
-						<li><a href="profile.php">Your Profile</a></li> 
+						<li><a href="profile.php">Your Profile</a></li>
 						<li><a href="pet.html">Your Pet</a></li>
-						<li><a href="rdv.html">Your appointment</a></li>
+						<li><a href="rdv.php">Your appointment</a></li>
 						<li><a href="statistics.html">Statistics</a></li>
+						<li><a href="logout.php">Log Out</a></li>
 					</ul>
 				</nav>
 			</header>
+
 
 		<!-- Banner -->
 			<section id="banner">
 				<h2>President And Secretary Vet Clinic</h2>
 				<p>Your pet's health, we care</p>
-				<ul class="actions">
-					<li><a href="#about_us" class="button special big">Get Started</a></li>
-				</ul>
 			</section>
 
 		<!-- Profile -->
@@ -45,8 +44,8 @@
     									session_start();
 									}
 									// Import session file
-									require_once("login.php");
-									include "login.php";
+									// require_once("login.php");
+									// include "login.php";
 								?>
 								<?php
 									if (isset($_SESSION['name'])) {

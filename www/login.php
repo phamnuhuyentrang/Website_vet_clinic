@@ -26,7 +26,7 @@
 		$surname = $_POST["surname"];
 		$dn = $_POST["dn"];
 
-		// Requête insert into table 
+		// Requête select from table 
 		// $sql = "SELECT * FROM Client WHERE Nom='".$name."' AND Prenom='".$surname."' AND Date_de_naissance='".$dn."' ";
 		$sql = "SELECT * FROM Client WHERE Nom='$name' AND Prenom='$surname' AND Date_de_naissance='$dn' ";
 

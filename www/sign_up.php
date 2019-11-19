@@ -33,7 +33,7 @@
 		VALUES ('$name','$surname','$dn','$ad','$phone') ";
 
 		if(mysqli_query($conn, $sql)){
-    		echo "Your informations are registered successfully. Thank you !";
+			echo "<script>alert('Your informations are registered successfully. Thank you!'); window.location.href='home.html';</script>";
 		} 
 		else{
     		echo "ERROR: Registration error. " . mysqli_error($conn);

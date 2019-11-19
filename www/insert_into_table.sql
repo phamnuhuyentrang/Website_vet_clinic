@@ -62,12 +62,19 @@ insert into Med_correspond_Ani values
 	('Vitamin B','Scarabée'),
 	('Omega 3','Scarabée');
 
+insert into Rendez_vous values
+	(1,1,2,'2019-11-11','08:00:00'),
+	(2,2,3,'2019-11-20','10:00:00'),
+	(3,5,4,'2019-11-28','11:30:00'),
+	(4,4,5,'2019-12-12','13:00:00'),
+	(5,3,1,'2019-12-14','15:30:00');
+
 insert into Traitement values 
-	(1,'08:00:00','01:00:00','Optique',1,2),
-	(2,'10:00:00','01:30:00','Osteopathie',2,3),
-	(3,'13:00:00','02:01:00','Soin de ventre',5,5),
-	(4,'17:00:00','00:30:00','Soin des yeux',4,4),
-	(5,'19:00:00','01:00:00','Traitement général',3,1);
+	(1,1,'01:00:00','Optique'),
+	(2,2,'01:30:00','Osteopathie'),
+	(3,4,'02:01:00','Soin de ventre'),
+	(4,3,'00:30:00','Soin des yeux'),
+	(5,5,'01:00:00','Traitement général');
 
 insert into Traitement_Medicament values 
 	(1,'Vitamin D',4),
