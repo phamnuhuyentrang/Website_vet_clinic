@@ -56,11 +56,7 @@
   									</div>
   									<div class="form">
   											<label for="pet-select">Species:</label>
-    										<select name = "le_nom" id="le_nom" onchange="if(this.options[this.selectedIndex].value=='Other'){
-              									toggleField(this,this.nextSibling);
-              									this.selectedIndex='0';
-          									}"> 
-          										<option></option>
+    										<select name = "le_nom" id="le_nom"> 
     											<option value = ''> Choose species of your pet </option>
 													<?php
 														$servername = "localhost";
