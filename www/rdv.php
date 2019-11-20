@@ -1,45 +1,44 @@
-<?php 
-	if(session_status() == PHP_SESSION_NONE  || session_id() == '') {
-    	session_start();
-	}
-	
-	if (isset($_SESSION['name'])) {
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "na17";
 
-		// Create connection
-		$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-		// Check connection
-		if (!$conn) {
-			die("ERROR: Connection failed " . $conn->connect_error);
-		}
-
-		$id = $_SESSION['id'];
-		$sql = "SELECT ID_Animal, Nom FROM Animal WHERE ID_Client = '$id' ";
-		$res = mysqli_query($conn, $sql);
-
-		$sql2 = "SELECT R.No_ref, A.Nom, V.Nom, V.prenom, R.Date_rdv, R.Time_rdv FROM Rendez_vous R LEFT JOIN Animal A ON R.Pet = A.ID_Animal LEFT JOIN Veterinaire V ON R.Vet = V.ID_personnel WHERE A.ID_Client='$id' ORDER BY R.Date_rdv AND R.Time_rdv";
-		$res2 = mysqli_query($conn, $sql2);
-	}
-	else {
-		echo "Session ends.";
-		header('Location: home.html');
-	}
-?>
 
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>PAS VET HOMEPAGE</title>
+		<title>PAS VET - YOUR APPOINTMENT</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="main.css" />
 	</head>
 	<body class="landing">
+		<?php 
+			if(session_status() == PHP_SESSION_NONE  || session_id() == '') {
+    			session_start();
+			}
+	
+			if (isset($_SESSION['name'])) {
+				$servername = "localhost";
+				$username = "root";
+				$password = "";
+				$dbname = "na17";
 
+				// Create connection
+				$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+				// Check connection
+				if (!$conn) {
+					die("ERROR: Connection failed " . $conn->connect_error);
+				}
+
+				$id = $_SESSION['id'];
+				$sql = "SELECT ID_Animal, Nom FROM Animal WHERE ID_Client = '$id' ";
+				$res = mysqli_query($conn, $sql);
+
+				$sql2 = "SELECT R.No_ref, A.Nom, V.Nom, V.prenom, R.Date_rdv, R.Time_rdv FROM Rendez_vous R LEFT JOIN Animal A ON R.Pet = A.ID_Animal LEFT JOIN Veterinaire V ON R.Vet = V.ID_personnel WHERE A.ID_Client='$id' ORDER BY R.Date_rdv AND R.Time_rdv";
+				$res2 = mysqli_query($conn, $sql2);
+			}
+			else {
+				echo "<script>alert('Session Ends.'); window.location.href='home.html';</script>";
+			}
+		?>
 		<!-- Header -->
 			<header id="header" class="alt">
 				<nav id="nav">
@@ -48,7 +47,7 @@
 						<li><a href="profile.php">Your Profile</a></li>
 						<li><a href="pet.php">Your Pet</a></li>
 						<li><a href="rdv.php">Your appointment</a></li>
-						<li><a href="statistics.html">Statistics</a></li>
+						<li><a href="statistics.php">Statistics</a></li>
 						<li><a href="logout.php">Log Out</a></li>
 					</ul>
 				</nav>

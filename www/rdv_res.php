@@ -54,8 +54,7 @@
 	}
 
 	else {
-		echo "Session ends.";
-		header('Location: home.html');
+		echo "<script>alert('Session Ends.'); window.location.href='home.html';</script>";
 	}
 ?>
 
@@ -78,7 +77,7 @@
 						<li><a href="profile.php">Your Profile</a></li>
 						<li><a href="pet.php">Your Pet</a></li>
 						<li><a href="rdv.php">Your appointment</a></li>
-						<li><a href="statistics.html">Statistics</a></li>
+						<li><a href="statistics.php">Statistics</a></li>
 						<li><a href="logout.php">Log Out</a></li>
 					</ul>
 				</nav>

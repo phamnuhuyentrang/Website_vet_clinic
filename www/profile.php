@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>PAS VET HOMEPAGE</title>
+		<title>PAS VET - YOUR PROFILE</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="main.css" />
@@ -14,9 +14,9 @@
 					<ul>
 						<li><a href="home_user.html">Home</a></li>
 						<li><a href="profile.php">Your Profile</a></li>
-						<li><a href="pet.html">Your Pet</a></li>
+						<li><a href="pet.php">Your Pet</a></li>
 						<li><a href="rdv.php">Your appointment</a></li>
-						<li><a href="statistics.html">Statistics</a></li>
+						<li><a href="statistics.php">Statistics</a></li>
 						<li><a href="logout.php">Log Out</a></li>
 					</ul>
 				</nav>
@@ -57,8 +57,7 @@
 										echo "<strong>Tel: </strong>" . $_SESSION['tel'] . '<br>';
 									}
 									else {
-										echo "Session ends.";
-										header('Location: home.html');
+										echo "<script>alert('Session Ends.'); window.location.href='home.html';</script>";
 									}
 								?>
 							</div>

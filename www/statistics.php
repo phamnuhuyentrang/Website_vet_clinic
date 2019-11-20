@@ -41,7 +41,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>PAS VET HOMEPAGE</title>
+		<title>STATISTICS</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="main.css" />
@@ -73,18 +73,18 @@
 			<section id="rdv" class="wrapper style1">
 					<div class="container">
 						<header class="major">
-							<h2>Ours total Traitement per species</h2>
+							<h2>Our total treatments per species</h2>
 						</header>
 						<div class="row 150%">
 							<?php while($row = mysqli_fetch_array($res)):;?>
 								<div class="6u 12u$(xsmall)">								
   									<div class="form">						        
-							        	<label> Specie : <?PHP echo $row[0]; ?> </label> <br>						     				
+							        	<label> Species : <?PHP echo $row[0]; ?> </label> <br>						     				
 							    	</div>
 								</div>
 								<div class="6u 12u$(xsmall)">
 	  								<div class="form">
-								        <label> Nombre_traitement : <?PHP echo $row[1]; ?> </label> <br>
+								        <label> Number of treatments : <?PHP echo $row[1]; ?> </label> <br>
 								    </div>
 								</div>
 							<?php endwhile;?>
